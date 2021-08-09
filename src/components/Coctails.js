@@ -40,7 +40,7 @@ export default class Coctails extends Component {
                 {items.map(item => (
                     <li key={item.name}>
                         {item.strDrink}
-                        <img width="50" height="50" src={item.strDrinkThumb} />
+                        <img width="50" height="50" src={item.strDrinkThumb} alt="something" />
                     </li>
                 ))}
             </ul>)
