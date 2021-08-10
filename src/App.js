@@ -1,14 +1,16 @@
 import './App.css';
-import Wallets from './components/Wallets';
-import Coctails from './components/Coctails';
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from './pages/Index';
 
 function App() {
   return (
-    <div className="App">
-     <h1>Hello!</h1>
-     <Wallets/>
+    <>
+     <Router>
+       <Home />
+     </Router>
 
-    </div>
+    </>
   );
 }
 
