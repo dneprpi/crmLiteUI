@@ -3,18 +3,18 @@ import React, {Component} from "react";
 export default class Google extends Component {
     constructor () {
         super ();
-        this.state = {wallets:[]};
+        this.state = {currency:[]};
     }
 
     componentDidMount(){
-        fetch('http://localhost:5050/api/wallet/leadid?leadId=56f58616-e09d-4183-a1ec-e8f3c4fe5c16')
+        fetch('http://localhost:5050/api/currency')
         .then((res) => {
             return res.json();
         })
         .then((body) => {
             console.log(body);
             this.setState({
-                wallets: body
+                currency: body
             });
         });
     }
@@ -28,8 +28,8 @@ export default class Google extends Component {
                                 <thead><tr><th><pre>User   </pre></th><th>Something</th></tr></thead>  
                                 <tbody>  
                                     {  
-                                        this.state.wallets.map((w, index) => {  
-                                            return <tr key={index}><td> {w.currency}</td><td>{w.amount}</td></tr>;  
+                                        this.state.wallets.map((c, index) => {  
+                                            return <tr key={index}><td> {c.ID}</td><td>{c.Title}</td></tr>;  
                                         })  
                                     }  
                                 </tbody>  

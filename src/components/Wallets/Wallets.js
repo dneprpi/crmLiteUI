@@ -9,7 +9,7 @@ export default class Wallets extends Component {
 
   componentDidMount() {
     fetch(
-      "http://localhost:5050/api/wallet/leadid?leadId=56f58616-e09d-4183-a1ec-e8f3c4fe5c16"
+      "http://localhost:5050/api/wallet/leadid?leadId=E9F60E42-9729-43F1-91A1-69E7EF2164ED"
     )
       .then((res) => {
         return res.json();
@@ -47,7 +47,7 @@ export default class Wallets extends Component {
               {this.state.wallets.map((w, index) => {
                 return (
                   <tr key={index}>
-                    <td> {w.currency}</td>
+                    <td> {w.currency.title}</td>
                     <td>{w.amount}</td>
                   </tr>
                 );
