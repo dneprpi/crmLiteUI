@@ -1,0 +1,31 @@
+.currency-page {
+  margin: 2rem auto 0 auto;
+  max-width: 40%;
+  /* background-color: rgb(162, 195, 243); */
+
+  font-family: "PT Sans", sans-serif;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+}
+
+.left {
+  width: 50%;
+  /* background-color: rgb(162, 0, 243); */
+}
+
+.right {
+  width: 50%;
+}
+
+a {
+  font-size: 20px;
+}
+
+.divider{
+  width: 16px;
+  height: auto;
+  display: inline-block;
+}
