@@ -7,17 +7,15 @@ export default class Wallets extends Component {
     this.state = { wallets: [], currencyBuy:'' };
   }
 
-  componentDidMount() {
-    fetch(
-      "http://localhost:5050/api/wallet/leadid?leadId=56f58616-e09d-4183-a1ec-e8f3c4fe5c16"
-    )
+  componentDidMount(leadId = "acdb8541-1619-4ef5-82e3-76f64514d2db") {
+    fetch(`http://localhost:5050/api/wallet/leadid?leadId=${leadId}`)
       .then((res) => {
         return res.json();
       })
       .then((body) => {
         console.log(body);
         this.setState({
-          wallets: body
+          wallets: body,
         });
       });
   }
