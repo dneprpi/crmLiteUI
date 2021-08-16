@@ -1,15 +1,13 @@
 import './App.css';
-import Wallets from './components/Wallets';
-import Coctails from './components/Coctails';
+import RegistrationForm from './components/RegistrationForm';
 
 function App() {
-  return (
-    <div className="App">
-     <h1>Hello!</h1>
-     <Wallets/>
-
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1> Products </h1>
+            <RegistrationForm />
+        </div>
+    );
 }
 
 export default App;
