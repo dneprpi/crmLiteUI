@@ -9,13 +9,11 @@ import Currency from "./components/currency";
 function App() {
   return (
     <>
-      {/* <Router>
+      <Router>
        <Switch></Switch>
        <Home />
-     </Router>
-     <Google />
-     <Wallets/> */}
-      <Currency />
+     </Router> 
+    <Currency />
     </>
   );
 }
