@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./account.css";
 
 export default class Account extends Component {
     constructor() {
@@ -13,14 +14,29 @@ export default class Account extends Component {
 
       render() {
        return (
-           <div className="container">
-               <div className="account-userPhoto">ghj</div>
-               <div className="account-userPhotoEdit">fgh</div>
-               <div className="account-userName">dfg</div>
-               <div className="account-userPassport">sdf</div>
-               <div className="account-userEmail">asd</div>
-               <div className="account-totalBalance">ert</div>
-               <div className="account-editUserInfo">wer</div>
+           <div class="container">
+               <div class = "row justify-content-center align-items-center">
+                 <div class = "col">
+                  111
+                 </div>
+                 <div class = "col">
+                  222
+                 </div>
+                 <div class = "col">
+                  333
+                 </div>
+               </div>
+               <div class = "row justify-content-center align-items-center">
+                 <div class = "col">
+                  444
+                 </div>
+                 <div class = "col">
+                  555
+                 </div>
+                 <div class = "col">
+                  666
+                 </div>
+               </div>
            </div>
        );
       }

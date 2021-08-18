@@ -1,0 +1,12 @@
+.container {
+    min-height: 300px;
+    border: 1px solid bisque;
+}
+.col {
+    min-height: 50px;
+    border: 2px solid rebeccapurple;
+}
+.row {
+    height: 100%;
+    border: 1px solid olive;
+}
