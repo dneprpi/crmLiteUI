@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACK_URL = 'http://localhost:1234';
+const BACK_URL = "http://localhost:5050";
 
 export const registerLead = data => {
     return axios({
