@@ -1,12 +1,21 @@
 .container {
-    min-height: 300px;
-    border: 1px solid bisque;
+  min-height: 300px;
+  margin-top: 40px;
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  text-align: center;
 }
 .col {
-    min-height: 50px;
-    border: 2px solid rebeccapurple;
+  min-height: 50px;
 }
 .row {
-    height: 100%;
-    border: 1px solid olive;
+  height: 100%;
+}
+.userName {
+  font-size: 40px;
+}
+.userinfo {
+  text-align: left;
 }
