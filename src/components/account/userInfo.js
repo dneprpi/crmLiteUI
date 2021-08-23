@@ -9,13 +9,13 @@ export default class userInfo extends Component {
     const user = this.props.user;
     const totalbalance = this.props.totalbalance;
     return (
-      <div class="container userinfo">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-1"></div>
-          <div class="col-2">
+      <div className="container userinfo">
+        <div className="row justify-content-center align-items-center">
+          <div className="col-1"></div>
+          <div className="col-2">
             <img src={photo} width="80%" height="80%" alt="user" />
           </div>
-          <div class="col-4">
+          <div className="col-4">
             <p className="userName">
               {user.firstName} {user.lastName}
             </p>
@@ -24,7 +24,7 @@ export default class userInfo extends Component {
             <p className="passport">E-mail : {user.email}</p>
             <p className="passport">Total Balance : {totalbalance} USD</p>
           </div>
-          <div class="col-5">
+          <div className="col-5">
             <i>TODO edit options</i>
           </div>
         </div>

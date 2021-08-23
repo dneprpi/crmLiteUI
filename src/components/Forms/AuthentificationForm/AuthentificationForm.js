@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { singInUser } from "../../../requests";
 import styles from "../style.module.css";
 
 export default class SingINForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      redirect: false,
+    };
+    this.submitForm = this.submitForm.bind(this);
+  }
+
   submitForm(e) {
     e.preventDefault();
 
@@ -13,15 +21,25 @@ export default class SingINForm extends Component {
     formData.forEach((value, key) => (object[key] = value));
     const json = JSON.stringify(object);
 
-    singInUser(json).then((answer) => this.props.handleToUpdate(answer));
+    singInUser(json)
+      .then((answer) => {
+        sessionStorage.setItem("leadid", answer.data.leadID);
+        sessionStorage.setItem("token", answer.data.token);
+        sessionStorage.setItem("isLogged", "true");
+      })
+      .then(() => this.setState({ redirect: true }));
   }
 
   render() {
+    const redirect = this.state.redirect;
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className={styles.formBlock}>
         <h2 className={styles.formTitle}>Login form</h2>
 
-        <form onSubmit={this.submitForm}>
+        <form onSubmit={(e) => this.submitForm(e)}>
           <input
             id="email"
             name="email"
