@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const CRM_URL = "http://localhost:1234";
-const Transaction_URL = "http://localhost:5050";
+const Transaction_URL = "https://localhost:5050";
 
 export const registerUser = (data) => {
   return axios({
