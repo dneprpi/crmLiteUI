@@ -30,7 +30,7 @@ function Navbar() {
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <pre>TRANSSTORE </pre>
-            <i class="fas fa-money-check-alt"></i>
+            <i className="fas fa-money-check-alt"></i>
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -43,7 +43,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/services"
+                to="/currency"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >

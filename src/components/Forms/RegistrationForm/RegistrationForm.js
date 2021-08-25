@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { registerUser } from "../../../requests";
+import { registerLead } from "../../../requests";
 import styles from '../style.module.css';
 
 export default class RegistrationForm extends Component {
@@ -12,7 +12,7 @@ export default class RegistrationForm extends Component {
     formData.forEach((value, key) => (object[key] = value));
     const json = JSON.stringify(object);
 
-    registerUser(json).then((answer) => console.log(answer));
+    registerLead(json).then((answer) => console.log(answer));
   }
 
   render() {

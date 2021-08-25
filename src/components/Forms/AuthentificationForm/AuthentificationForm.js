@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import { singInUser } from '../../../requests';
+import { singInLead } from '../../../requests';
 import styles from '../style.module.css';
 
 export default class SingINForm extends Component {
@@ -13,7 +13,7 @@ export default class SingINForm extends Component {
         formData.forEach((value, key) => object[key] = value);
         const json = JSON.stringify(object);
 
-        singInUser(json)
+        singInLead(json)
             .then(answer => console.log(answer));
     }
 
