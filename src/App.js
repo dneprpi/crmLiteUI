@@ -6,6 +6,7 @@ import Google from "./components/google/Google";
 import Wallets from "./components/Wallets/Wallets";
 import AuthentificationForm from "./components/Forms/AuthentificationForm";
 import RegistrationForm from "./components/Forms/RegistrationForm";
+import Leads from "./components/Leads";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path = "/register">
           <RegistrationForm/>          
+        </Route>
+        <Route path = "/leads">
+          <Leads/>          
         </Route>
       </Router>
     </>
