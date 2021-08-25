@@ -1,0 +1,13 @@
+.divider {
+    width: 16px;
+    height: auto;
+    display: inline-block;
+}
+
+.margin{
+    margin-top: 2rem;
+}
+
+.width{
+    max-width: 25%;
+}

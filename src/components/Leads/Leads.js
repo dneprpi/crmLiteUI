@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { paginationLead } from '../../requests';
-//import Pagination from '../Pagination';
+import Pagination from '../Pagination';
 import LeadsList from './LeadsList';
 
 window.React = React;
@@ -46,18 +46,18 @@ class Leads extends Component {
         console.log(this)
     }
 
-    // render() {
-    //     return (
-    //         <Pagination 
-    //             itemsperpage={ this.state.pageLimit }
-    //             nocolumns={ null }
-    //             items={ [1,2,3,4,5,6,7,8,9,10]/*this.createItemCountList()*/ }
-    //             pagesspan={ 6 }
-    //             buttonClickHandler={ this.buttonClick }>
-    //             <LeadsList leadsList={ this.state.leadsList }/>
-    //         </Pagination>
-    //     )
-    // }
+    render() {
+        return (
+            <Pagination 
+                itemsperpage={ this.state.pageLimit }
+                nocolumns={ null }
+                items={ [1,2,3,4,5,6,7,8,9,10]/*this.createItemCountList()*/ }
+                pagesspan={ 6 }
+                buttonClickHandler={ this.buttonClick }>
+                <LeadsList leadsList={ this.state.leadsList }/>
+            </Pagination>
+        )
+    }
 }
 
 export default Leads;

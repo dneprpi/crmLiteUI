@@ -1,21 +1,14 @@
-.icon-size{
-    width: 70px;
-    height: 50px;
+.margin{
+    margin-top: 2rem;
 }
 
-.payment-logo {
-    color: rgb(0, 0, 0);
-    justify-self: start;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
+.width{
+    max-width: 25%;
 }
 
-.payment-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.divider {
+    width: 16px;
+    height: auto;
+    display: inline-block;
 }
+

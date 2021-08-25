@@ -14,9 +14,10 @@ export default class Currency extends Component {
       wallets: [], currentRate: Number, operationTypes: []};
   }
 
-  componentDidMount(leadID = 'f9168c5e-ceb2-4faa-b6bf-329bf39fa1e4') {
+  componentDidMount(leadID = '207AE0D0-D42E-4571-983A-02C7A312835D') {
     getAllWallets(leadID).then((response) => { 
       this.state.wallets = response.data;
+      console.log(this.state.wallets);
       this.fillSelectCurrencyToSell();
 
       sessionStorage.setItem('USDWallet', JSON.stringify(this.getUSDWallet()));
@@ -74,7 +75,7 @@ export default class Currency extends Component {
                 <button className="btn border border-primary">Deposit</button>
               </Link>
               <div className="divider"/>
-              <Link to="/withdraw">
+              <Link to="/curency-withdraw">
                 <button className="btn border border-primary">Withdraw</button>
               </Link>
             </div>

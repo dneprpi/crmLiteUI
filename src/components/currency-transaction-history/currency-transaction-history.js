@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./currency-transaction-history.css";
 import { getAllCurrencyTransactionsHistory } from "../../requests";
-//import Pagination from "../Pagination";
+import Pagination from "../Pagination";
 
 export default class CurrencyTransactionHistory extends Component {
   constructor() {
     super();
     this.state = { 
-      currentPage: 1,
-      countItems: 10,
-      pageLimit: 2,
       transactions: []
     };
   }
@@ -37,13 +34,6 @@ export default class CurrencyTransactionHistory extends Component {
           Currency transaction history
         </h1>
         <div>
-          {/* <Pagination
-            itemsperpage={this.state.pageLimit}
-            nocolumns={null}
-            items={this.createItemCountList()}
-            pagesspan={6}
-            buttonClickHandler={this.buttonClick}
-          >
             <table className="table">
               <thead>
                 <tr>
@@ -55,12 +45,13 @@ export default class CurrencyTransactionHistory extends Component {
                 </tr>
               </thead>
               <tbody>
+                {console.log(this.state.transactions)}
                 {this.state.transactions.map((t, index) => {
                   return (
                     <tr key={index}>
-                      <td> {t.operationName}</td>
-                      <td> {t.from}</td>
-                      <td> {t.to}</td>
+                      <td> {t.operationType.operationType}</td>
+                      <td> {t.walletFrom.currency.code}</td>
+                      <td> {t.walletTo.currency.code}</td>
                       <td> {t.amount}</td>
                       <td> {t.timestamp}</td>
                     </tr>
@@ -68,7 +59,6 @@ export default class CurrencyTransactionHistory extends Component {
                 })}
               </tbody>
             </table>
-          </Pagination> */}
         </div>
       </div>
     );

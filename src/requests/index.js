@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const CRM_URL = "http://localhost:1234";
-const Transaction_URL = "http://localhost:5050";
+const CRM_URL = "https://crmlite-leads-service.azurewebsites.net/";
+const Transaction_URL = "https://crmlite-transaction-store.azurewebsites.net";
 const Rates_URL = "http://localhost:7090";
 
 export const registerLead = (data) => {
@@ -33,7 +33,7 @@ export const singInLead = (data) => {
 export const payPalDeposit = ({ total, leadID }) => {
   return axios({
     method: "post",
-    baseURL: "https://localhost:5050",
+    baseURL: Transaction_URL,
     url: "/api/PayPal/checkout",
     params: {
       total,
@@ -45,17 +45,16 @@ export const payPalDeposit = ({ total, leadID }) => {
   });
 };
 
-export const transStoreDeposit = ({ transaction }) => {
+export const createTransStoreTransaction = ({ data, token }) => {
   return axios({
     method: "post",
-    baseURL: "https://localhost:5050",
-    url: "/api/PayPal/checkout",
-    params: {
-      transaction,
-    },
+    baseURL: Transaction_URL,
+    url: "/api/Transaction/",
     headers: {
       "Content-Type": "application/json",
+      'Authorization': 'Bearer ' + token
     },
+    data,
   });
 };
 
