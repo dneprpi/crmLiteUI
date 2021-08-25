@@ -1,0 +1,29 @@
+.currency-page {
+  margin: 2rem 2rem 0 0;
+  max-width: 40%;
+
+  font-family: "PT Sans", sans-serif;
+}
+
+a {
+  font-size: 20px;
+}
+
+.divider{
+  width: 16px;
+  height: auto;
+  display: inline-block;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.horizontal-line {
+  padding-bottom: 20px;
+  border-bottom: 3px solid #f0f0f0; 
+}
