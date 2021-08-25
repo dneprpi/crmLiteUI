@@ -148,3 +148,17 @@ export const getAllOperationTypes = () => {
     },
   });
 };
+
+export const getTotalWalletsBalance = (leadID) => {
+  return axios({
+    method: "get",
+    baseURL: Transaction_URL,
+    url: `/api/Balance/wallets/leadID`,
+    params:{
+      leadID,
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};

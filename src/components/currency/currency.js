@@ -2,7 +2,8 @@ import { supportsGoWithoutReloadUsingHash } from "history/DOMUtils";
 import React, { Component } from "react";
 import "./currency.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getAllWallets, getUSDWalletAmount, getRateByCurrencyCode, getAllOperationTypes } from "../../requests";
+import { getAllWallets, getUSDWalletAmount, getRateByCurrencyCode, getAllOperationTypes,
+  getTotalWalletsBalance } from "../../requests";
 import Deposit from "../deposit";
 import { Link } from "react-router-dom";
 
@@ -28,8 +29,12 @@ export default class Currency extends Component {
 
     getAllOperationTypes().then((response) => {
       this.setState({operationTypes: response.data});
+      
       sessionStorage.setItem('operationTypes', JSON.stringify(this.state.operationTypes));
-      console.log(JSON.parse(sessionStorage.getItem('operationTypes')));
+    });
+
+    getTotalWalletsBalance(leadID).then((response)=>{
+      this.setState({totalAmount: response.data});
     });
   };
 
@@ -37,15 +42,30 @@ export default class Currency extends Component {
     return this.state.wallets.find(el => el.currency.code === 'USD');
   }
 
+  myFunction() {
+    var x = document.getElementById("selectCurrencyToBuy").value;
+    document.getElementById("exRateToBuy").innerHTML = "You selected: " + x;
+  }
+
   // <form onSubmit="return sellCyrrency()">
-  //           <div className="row">
-  //             {/* fillSelectCurrencyToSell */}
-  //             <select id="selectCurrencyToSell" className="col"></select>
-  //             <input id="currencyAmountToSell" name="currencyAmountToSell" placeholder="Amount" className="col"></input>
-  //             <label id="price" className="col"><u>Exchange rate: 27.3</u></label>
-  //             <button className="col">Buy</button>
-  //           </div>
-  //         </form>
+  //   <div className="row">
+  //     <select id="selectCurrencyToSell" className="col"></select>
+  //     <input id="currencyAmountToSell" name="currencyAmountToSell" placeholder="Amount" className="col"></input>
+  //     <label id="price" className="col"><u>Exchange rate: 27.3</u></label>
+  //     <button className="col">Buy</button>
+  //   </div>
+  // </form>
+
+  onOptionItemSelect(wallet){
+    getRateByCurrencyCode(wallet.currency.code).then((response)=>{
+      this.setState({currentRate: response.data.value});
+    });
+
+    // var label = document.getElementById('exRateToSell');
+    // label.value = this.state.currentRate;
+    //document.getElementById('exRateToSell').innerHTML = this.state.currentRate;
+    alert("Message");
+  }
 
   fillSelectCurrencyToSell (){
     var select = document.getElementById('selectCurrencyToSell');
@@ -54,6 +74,7 @@ export default class Currency extends Component {
       let opt = document.createElement('option');
       opt.value = element.currency.code;
       opt.innerHTML = element.currency.code;
+      //opt.onselect = () => this.onOptionItemSelect(element);
       select.appendChild(opt);
     });
   };
@@ -63,7 +84,7 @@ export default class Currency extends Component {
       <div onload="loadPage()">
         <div className="container margin-top">
           <div className="row">
-            <h4 className="col">Total: 0{this.props.totalAmount}$</h4>
+            <h4 className="col">Total: 0{this.state.totalAmount}$</h4>
             {/* TODO change url */}
             <a className="col" href="https://www.w3schools.com/" target="_blank">View history</a>
           </div>
@@ -114,14 +135,13 @@ export default class Currency extends Component {
           {/* TODO Craete sellCurrency method */}
           <form onSubmit="return sellCyrrency()">
             <div className="row">
-              {/* {this.fillSelectCurrencyToSell()} */}
               <select id="selectCurrencyToSell" className="col">
                 <option value="" disabled selected>Choose currency</option>
               </select>
               <input id="currencyAmountToSell" name="currencyAmountToSell" placeholder="Amount" className="col"></input>
-              <label id="price" className="col"><u>Exchange rate: 27.3</u></label>
-              <label id="total" className="col"><u>Total: 625000</u></label>
-              <button className="col">Buy</button>
+              <label id="labelExRateToSell" className="col"><u>Exchange rate: </u></label>
+              <label id="labelTotalToSell" className="col"><u>Total: </u></label>
+              <button className="col">Sell</button>
             </div>
           </form>
         </div>
@@ -132,10 +152,13 @@ export default class Currency extends Component {
           <form onSubmit="return buyCyrrency()">
             <div className="row">
               {/* TODO selectCurrencyToBuy */}
-              <select id="selectCurrencyToBuy" className="currency-width col"></select>
+              <select id="selectCurrencyToBuy" className="currency-width col" onChange={this.myFunction()}>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+              </select>
               <input id="currencyAmountToBuy" name="currencyAmountToBuy" placeholder="Amount" className="col"></input>
-              <label id="price" className="col"><u>Exchange rate: 27.3</u></label>
-              <label id="total" className="col"><u>Total: 625000</u></label>
+              <label id="exRateToBuy" className="col"></label>
+              <label id="totalToBuy" className="col"><u>Total: </u></label>
               <button className="col">Buy</button>
             </div>
           </form>
