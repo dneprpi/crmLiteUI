@@ -7,6 +7,8 @@ import Wallets from "./components/Wallets/Wallets";
 import AuthentificationForm from "./components/Forms/AuthentificationForm";
 import RegistrationForm from "./components/Forms/RegistrationForm";
 import GoogleTFAModalWindowLogic from "./components/Modals/GoogleTFAModalWindow/GoogleTFAModalWindowLogic"
+import Leads from "./components/Leads";
+
 function App() {
   return (
     <>
@@ -19,8 +21,9 @@ function App() {
         <Route path = "/register">
           <RegistrationForm/>          
         </Route>
-          <GoogleTFAModalWindowLogic/>
-          
+        <Route path = "/leads">
+          <Leads/>          
+        </Route>
       </Router>
     </>
   );

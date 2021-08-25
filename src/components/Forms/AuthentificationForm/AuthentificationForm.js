@@ -4,8 +4,20 @@ import { singInUser } from '../../../requests';
 import styles from '../style.module.css';
 
 export default class SingINForm extends Component {
+
+    constructor(){
+        super();
+    
+        this.state = {
+            fields: {},
+            errors: {}
+        }
+    }
+        
     submitForm(e) {
         e.preventDefault();
+
+        if (!this.handleValidation()) return;
 
         const formData = new FormData(e.target);
         const object = {};
@@ -17,18 +29,58 @@ export default class SingINForm extends Component {
             .then(answer => console.log(answer));
     }
 
+    handleValidation(){
+        let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+      
+        //Email
+        if(!fields["email"]){
+           formIsValid = false;
+           errors["email"] = "Cannot be empty";
+        }
+      
+        if(typeof fields["email"] !== "undefined") {
+            let lastAtPos = fields["email"].lastIndexOf('@');
+            let lastDotPos = fields["email"].lastIndexOf('.');
+
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
+                formIsValid = false;
+                errors["email"] = "Email is not valid";
+            }
+        }
+            //password
+        if(!fields["password"]){
+            formIsValid = false;
+            errors["password"] = "Cannot be empty";
+         }
+
+       this.setState({errors: errors});
+       return formIsValid;
+      }
+      
+    
+      handleChange(field, e){         
+        let fields = this.state.fields;
+        fields[field] = e.target.value;        
+        this.setState({fields});
+      }
+    
+
     render() {
         return (
             <div className={ styles.formBlock }>
                 <h2 className={ styles.formTitle }>Login form</h2>
 
-                <form onSubmit={this.submitForm}>
+                <form onSubmit={this.submitForm.bind(this)}>
                     <input 
                         id="email" 
                         name="email" 
                         type="email" 
                         placeholder="E-mail" 
                         className={ styles.formControl }
+                        onChange={this.handleChange.bind(this, "email")} 
+                        value={this.state.fields["email"]}
                     />
                     <input 
                         id="password" 
@@ -36,6 +88,8 @@ export default class SingINForm extends Component {
                         type="password" 
                         placeholder="Password" 
                         className={ styles.formControl }
+                        onChange={this.handleChange.bind(this, "password")} 
+                        value={this.state.fields["password"]}
                     />
 
                     <div className={ styles.bottomButtons }>
