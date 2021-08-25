@@ -15,6 +15,14 @@ form {
     margin-bottom: 25px;
 }
 
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup:last-of-type {
+    margin-bottom: 0;
+}
+
 .formControl {
     font-size: 18px;
     line-height: 40px;
@@ -23,11 +31,7 @@ form {
     width: 100%;
     border: 1px solid #b1b5c2;
     background-color: #f6f7fa;
-    margin-bottom: 20px;
-}
-  
-.forControl:last-of-type {
-    margin-bottom: 0;
+
 }
 
 .bottomButtons {
