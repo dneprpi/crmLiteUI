@@ -29,7 +29,9 @@ export default class Currency extends Component {
   }
 
   componentDidMount(leadID = "f9168c5e-ceb2-4faa-b6bf-329bf39fa1e4") {
-    const arr =[]
+    const arr = []
+
+    
     getAllWallets(leadID)
       .then((response) => {
         this.state.wallets = response.data;
@@ -43,27 +45,22 @@ export default class Currency extends Component {
       .then(() => {
         
         this.state.wallets.forEach((element) => {
-          getRateByCurrencyCode(element.currency.code).then((response) => {
-            // this.setState(prev =>).currentRateExisting
-            return JSON.stringify(response.data)
-          }).then(data => {
-            return JSON.parse(data)
-          }).then(data => {
-            console.log(data)
+          getRateByCurrencyCode(element.currency.code).then((response) => response)
+          .then(data => data.data)
+          .then(data => {
             arr.push(data.value)
+            console.log(arr)
+            console.log(arr[0])
 
-          });
+          })
         });
-        console.log(arr)
-        console.log(arr[0]);
         // sessionStorage.setItem("existingRates", JSON.stringify(this.state.currentRateExisting));
       })
       .then(() => console.log(this.state.currentRateExisting));
-
     getUSDWalletAmount(leadID).then((response) => {
       this.setState({ dollarAmount: response.data.amount });
     });
-
+    console.log(this.state.currentRateExisting)
     getAllOperationTypes().then((response) => {
       this.setState({ operationTypes: response.data });
 
@@ -73,6 +70,11 @@ export default class Currency extends Component {
       );
     });
 
+
+    setTimeout(() => {
+      console.log('tim ', arr)
+    }, 1000)
+console.log('qweqweqwe', arr)
     getTotalWalletsBalance(leadID).then((response) => {
       this.setState({ totalAmount: response.data });
     });
