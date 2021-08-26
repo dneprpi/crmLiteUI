@@ -1,0 +1,52 @@
+.currency-page {
+  max-width: 40%;
+  font-family: "PT Sans", sans-serif;
+}
+
+.currency-page-60 {
+  max-width: 75%;
+  font-family: "PT Sans", sans-serif;
+}
+
+a,
+th,
+u {
+  font-size: 20px;
+}
+
+.margin-top{
+  margin-top: 2rem;
+}
+
+.divider {
+  width: 16px;
+  height: auto;
+  display: inline-block;
+}
+
+.currency-width{
+  width: 25px;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.horizontal-line {
+  padding-bottom: 20px;
+  border-bottom: 3px solid #e0dfdf;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col{
+  margin: 5px;
+  width: 10px;
+}

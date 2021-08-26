@@ -10,6 +10,8 @@ import Home from "./pages/Index";
 import AuthentificationForm from "./components/Forms/AuthentificationForm";
 import RegistrationForm from "./components/Forms/RegistrationForm";
 import Account from "./components/account/account";
+import Currency from "./components/currency";
+import Deposit from "./components/deposit";
 
 function App() {
   return (
@@ -29,6 +31,12 @@ function App() {
         </Route>
         <Route path="/register">
           <RegistrationForm />
+        </Route>
+        <Route path="/curency-deposit">
+          <Deposit />
+        </Route>
+        <Route path="/currency">
+          <Currency />
         </Route>
       </Router>
     </>
