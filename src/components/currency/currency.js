@@ -21,7 +21,7 @@ export default class Currency extends Component {
       wallets: [],
       currentRateExisting: [],
       operationTypes: [],
-      leadID: "f9168c5e-ceb2-4faa-b6bf-329bf39fa1e4"
+     // leadID: "3F7925CF-0D03-4397-A203-3378266DD900"
     };
   }
 
@@ -29,7 +29,7 @@ export default class Currency extends Component {
     return this.state.wallets.find((el) => el.currency.code === "USD");
   }
 
-  componentDidMount(leadID = "f9168c5e-ceb2-4faa-b6bf-329bf39fa1e4") {
+  componentDidMount(leadID = "3F7925CF-0D03-4397-A203-3378266DD900") {
     const arr = [];
 
     getAllWallets(leadID)
@@ -113,7 +113,7 @@ export default class Currency extends Component {
       <div>
         <div className="container margin-top">
           <div className="row">
-            <h4 className="col">Total: 0{this.state.totalAmount}$</h4>
+            <h4 className="col">Total: {this.state.totalAmount}$</h4>
             {/* TODO change url */}
             <a
               className="col"

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const CRM_URL = "http://localhost:1234";
 const Transaction_URL = "https://localhost:5050";
-const Rates_URL = "http://localhost:7090";
+const Rates_URL = "http://localhost:80";
 
 export const registerLead = (data) => {
   return axios({

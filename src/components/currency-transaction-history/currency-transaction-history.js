@@ -15,7 +15,7 @@ export default class CurrencyTransactionHistory extends Component {
     };
   }
 
-  componentDidMount(leadId = "207AE0D0-D42E-4571-983A-02C7A312835D") {
+  componentDidMount(leadId = "3F7925CF-0D03-4397-A203-3378266DD900") {
     getAllCurrencyTransactionsHistory(leadId).then((response) => {
       this.setState({ transactions: response.data });
     });
