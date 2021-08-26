@@ -21,6 +21,7 @@ export default class Currency extends Component {
       wallets: [],
       currentRateExisting: [],
       operationTypes: [],
+      leadID: "f9168c5e-ceb2-4faa-b6bf-329bf39fa1e4"
     };
   }
 
@@ -29,9 +30,8 @@ export default class Currency extends Component {
   }
 
   componentDidMount(leadID = "f9168c5e-ceb2-4faa-b6bf-329bf39fa1e4") {
-    const arr = []
+    const arr = [];
 
-    
     getAllWallets(leadID)
       .then((response) => {
         this.state.wallets = response.data;
@@ -43,24 +43,26 @@ export default class Currency extends Component {
         );
       })
       .then(() => {
-        
         this.state.wallets.forEach((element) => {
-          getRateByCurrencyCode(element.currency.code).then((response) => response)
-          .then(data => data.data)
-          .then(data => {
-            arr.push(data.value)
-            console.log(arr)
-            console.log(arr[0])
-
-          })
+          getRateByCurrencyCode(element.currency.code)
+            .then((response) => response)
+            .then((data) => data.data)
+            .then((data) => {
+              arr.push(data.value);
+              console.log(arr);
+              console.log(arr[0]);
+            });
         });
         // sessionStorage.setItem("existingRates", JSON.stringify(this.state.currentRateExisting));
       })
       .then(() => console.log(this.state.currentRateExisting));
+
     getUSDWalletAmount(leadID).then((response) => {
       this.setState({ dollarAmount: response.data.amount });
     });
-    console.log(this.state.currentRateExisting)
+
+    console.log(this.state.currentRateExisting);
+
     getAllOperationTypes().then((response) => {
       this.setState({ operationTypes: response.data });
 
@@ -70,11 +72,11 @@ export default class Currency extends Component {
       );
     });
 
-
     setTimeout(() => {
-      console.log('tim ', arr)
-    }, 1000)
-console.log('qweqweqwe', arr)
+      console.log("tim ", arr);
+    }, 1000);
+    console.log("qweqweqwe", arr);
+
     getTotalWalletsBalance(leadID).then((response) => {
       this.setState({ totalAmount: response.data });
     });
@@ -207,10 +209,10 @@ console.log('qweqweqwe', arr)
           <form onSubmit="return buyCyrrency()">
             <div className="row">
               {/* TODO selectCurrencyToBuy */}
-              <select id="selectCurrencyToBuy" className="currency-width col">
-                <option value="Audi">Audi</option>
-                <option value="BMW">BMW</option>
-              </select>
+              <select
+                id="selectCurrencyToBuy"
+                className="currency-width col"
+              ></select>
               <input
                 id="currencyAmountToBuy"
                 name="currencyAmountToBuy"
