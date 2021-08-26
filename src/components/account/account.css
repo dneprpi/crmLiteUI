@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  width: 80%;
+  margin: 0 10%;
+  min-height: 300px;
+  margin-top: 40px;
+  padding: 20px;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+.col {
+  min-height: 50px;
+  width: 200px;
+}
+.row {
+  align-self: center;
+  height: 400px;
+  width: 600px;
+}
+.userName {
+  font-size: 40px;
+}
+.userinfo {
+  text-align: left;
+}
