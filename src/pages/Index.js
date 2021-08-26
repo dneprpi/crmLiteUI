@@ -1,15 +1,12 @@
-import React, {useState} from 'react';
-import Navbar from '../components/Navbar';
-import Account from '../components/account/account';
+import React from "react";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
-
-    return (
-        <>
-            <Navbar />
-            <Account />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 };
 
 export default Home;

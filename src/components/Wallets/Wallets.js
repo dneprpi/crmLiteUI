@@ -58,6 +58,7 @@ export default class Wallets extends Component {
             src={`data:image/png;base64,${encodedBase64}`}
             width="200px"
             height="200px"
+            alt=""
           />
         </div>
         <div>

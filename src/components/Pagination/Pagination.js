@@ -1,17 +1,24 @@
-import React, { Children } from "react";
+import React from "react";
 import ReactNextPaging from "react-next-paging";
 
 const buttonStyles = {
   border: "1px solid #ccc",
-  
+
   background: "#fff",
   fontSize: "1em",
   padding: 10,
   margin: 5,
-  width: 70
+  width: 70,
 };
 
-const Paginacion = ({ itemsperpage, nocolumns, items, pagesspan, children, buttonClickHandler }) => {
+const Paginacion = ({
+  itemsperpage,
+  nocolumns,
+  items,
+  pagesspan,
+  children,
+  buttonClickHandler,
+}) => {
   return (
     <ReactNextPaging
       itemsperpage={itemsperpage}
@@ -35,20 +42,23 @@ const Paginacion = ({ itemsperpage, nocolumns, items, pagesspan, children, butto
         goBackBdisabled,
         goFastBackBdisabled,
         goFwdBdisabled,
-        goFastFwdBdisabled
+        goFastFwdBdisabled,
       }) => (
         <tbody>
-          { children } 
+          {children}
 
           {noitems > 0
             ? [
                 <tr key={"pagingrow" + 100}>
-                  <td colSpan={nocolumns} style={{ textAlign: "center" }} 
-                      onClick={ e => buttonClickHandler(e.target) }>
+                  <td
+                    colSpan={nocolumns}
+                    style={{ textAlign: "center" }}
+                    onClick={(e) => buttonClickHandler(e.target)}
+                  >
                     <button
                       style={buttonStyles}
                       {...getFastBackButtonProps()}
-                      data-currentpage={ 1 }
+                      data-currentpage={1}
                       disabled={goFastBackBdisabled}
                     >
                       {"<<"}
@@ -56,7 +66,7 @@ const Paginacion = ({ itemsperpage, nocolumns, items, pagesspan, children, butto
                     <button
                       style={buttonStyles}
                       {...getBackButtonProps()}
-                      data-currentpage={ currentpage - 1 }
+                      data-currentpage={currentpage - 1}
                       disabled={goBackBdisabled}
                     >
                       {"<"}
@@ -64,13 +74,13 @@ const Paginacion = ({ itemsperpage, nocolumns, items, pagesspan, children, butto
                     {Array.from(
                       { length: pagesforarray },
                       (v, i) => i + inipagearray
-                    ).map(page => {
+                    ).map((page) => {
                       return (
                         <button
                           key={page}
                           {...getSelPageButtonProps({ page: page })}
-                          data-currentpage={ page }
-                          disabled={currentpage == page}
+                          data-currentpage={page}
+                          disabled={currentpage === page}
                         >
                           {page}
                         </button>
@@ -79,7 +89,7 @@ const Paginacion = ({ itemsperpage, nocolumns, items, pagesspan, children, butto
                     <button
                       style={buttonStyles}
                       {...getFwdButtonProps()}
-                      data-currentpage={ currentpage + 1 }
+                      data-currentpage={currentpage + 1}
                       disabled={goFwdBdisabled}
                     >
                       {">"}
@@ -87,13 +97,13 @@ const Paginacion = ({ itemsperpage, nocolumns, items, pagesspan, children, butto
                     <button
                       style={buttonStyles}
                       {...getFastFwdButtonProps()}
-                      data-currentpage={ items.length / itemsperpage }
+                      data-currentpage={items.length / itemsperpage}
                       disabled={goFastFwdBdisabled}
                     >
                       {">>"}
                     </button>
                   </td>
-                </tr>
+                </tr>,
               ]
             : null}
         </tbody>

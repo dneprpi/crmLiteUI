@@ -1,0 +1,8 @@
+.container .row {
+  display: flex;
+  max-height: 150px;
+}
+.container .col {
+  display: block;
+  width: 200px;
+}
