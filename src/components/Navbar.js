@@ -43,11 +43,11 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link
-                to="/services"
+                to="/rostik_dr"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Currency
+                Rostik
               </Link>
             </li>
             <li className="nav-item">

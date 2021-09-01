@@ -10,6 +10,7 @@ import Home from "./pages/Index";
 import AuthentificationForm from "./components/Forms/AuthentificationForm";
 import RegistrationForm from "./components/Forms/RegistrationForm";
 import Account from "./components/account/account";
+import Rostik from "./components/rostik/rostik";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/register">
           <RegistrationForm />
+        </Route>
+        <Route path="/rostik_dr">
+          <Rostik />
         </Route>
       </Router>
     </>
